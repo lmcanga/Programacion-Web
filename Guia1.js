@@ -89,7 +89,7 @@ let num7 = 30
 console.log(num8>num9 && num8<num7)
 console.log(num9!=num7)
 
-// Ejercicio 8
+// Ejercicio 8 aaaaa
 // Declara dos variables que almacenen strings (por ejemplo, tu nombre y tu apellido). 
 // Luego, crea una tercera variable que concatene las dos primeras y muestra el resultado en la consola.
 
