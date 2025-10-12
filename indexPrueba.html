@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Nordex</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+        }
+
+        .header {
+            background: white;
+            padding: 15px 50px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-punto {
+            font-size: 32px;
+            font-weight: 800;
+            color: #00569e;
+            letter-spacing: 2px;
+            line-height: 1;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        .logo-nordex {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1;
+            font-family: 'Arial Black', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-norde {
+            color: #00569e;
+        }
+
+        .logo-x {
+            color: #00a8e1;
+            font-size: 36px;
+            margin-left: -2px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #0099CC;
+            transition: width 0.3s;
+        }
+
+        .menu a:hover {
+            color: #0099CC;
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .carrito {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .carrito:hover {
+            transform: scale(1.1);
+        }
+
+        .carrito-icon {
+            font-size: 28px;
+            color: #0099CC;
+        }
+
+        .carrito-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .banner {
+            background: linear-gradient(135deg, rgba(0,153,204,0.95) 0%, rgba(0,107,148,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1585421514738-01798e348b17?w=1200') center/cover;
+            color: white;
+            padding: 140px 50px;
+            text-align: center;
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .banner h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .banner p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            position: relative;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .boton {
+            background-color: white;
+            color: #0099CC;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .boton:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        }
+
+        .productos {
+            padding: 80px 50px;
+            background: linear-gradient(to bottom, #f9f9f9 0%, #ffffff 100%);
+        }
+
+        .sobre-nosotros {
+            padding: 80px 50px;
+            background: white;
+        }
+
+        .sobre-nosotros h2 {
+            text-align: center;
+            color: #0099CC;
+            font-size: 45px;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .sobre-text {
+            padding: 20px;
+        }
+
+        .sobre-text h3 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .sobre-text p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .sobre-imagen {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #0099CC;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,153,204,0.15);
+            transition: all 0.3s;
+        }
+
+        .sobre-imagen:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,153,204,0.2);
+        }
+
+        .productos h2 {
+            text-align: center;
+            color: #0099CC;
+            font-size: 45px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .productos-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .grilla {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .tarjeta {
+            background: white;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .tarjeta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0099CC, #00d4ff);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .tarjeta:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,153,204,0.2);
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            transition: transform 0.4s;
+            padding: 20px;
+            background: white;
+        }
+
+        .tarjeta:hover img {
+            transform: scale(1.1);
+        }
+
+        .tarjeta-contenido {
+            padding: 25px;
+        }
+
+        .tarjeta h3 {
+            margin: 0 0 12px 0;
+            font-size: 22px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .tarjeta p {
+            color: #777;
+            font-size: 15px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .precio {
+            color: #0099CC;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 18px 0;
+            text-shadow: 1px 1px 2px rgba(0,153,204,0.1);
+        }
+
+        .tarjeta button {
+            background: linear-gradient(135deg, #0099CC 0%, #007399 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,153,204,0.3);
+        }
+
+        .tarjeta button:hover {
+            background: linear-gradient(135deg, #007399 0%, #005266 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,153,204,0.4);
+        }
+
+        .contacto {
+            padding: 80px 50px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+        }
+
+        .contacto h2 {
+            color: #0099CC;
+            font-size: 45px;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: all 0.4s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,153,204,0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,153,204,0.15);
+            border-color: #0099CC;
+        }
+
+        .info-card p:first-child {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .info-card p:nth-child(2) {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0099CC;
+            margin-bottom: 10px;
+        }
+
+        .info-card p:last-child {
+            color: #555;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .pie {
+            background: linear-gradient(135deg, #2C3E50 0%, #1a252f 100%);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .pie p {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                gap: 20px;
+            }
+
+            .menu a {
+                font-size: 14px;
+            }
+
+            .banner {
+                padding: 80px 20px;
+                min-height: 400px;
+            }
+
+            .banner h1 {
+                font-size: 40px;
+            }
+
+            .banner p {
+                font-size: 18px;
+            }
+
+            .productos, .contacto {
+                padding: 50px 20px;
+            }
+
+            .grilla {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sobre-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .sobre-imagen {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-container">
+            <div class="logo-punto">PUNTO</div>
+            <div class="logo-nordex">
+                <span class="logo-norde">NORDE</span>
+                <span class="logo-x">X</span>
+            </div>
+        </div>
+        <div class="nav-container">
+            <div class="menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre">Sobre Nosotros</a>
+                <a href="#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="carrito" onclick="verCarrito()">
+                <div class="carrito-icon">🛒</div>
+                <div class="carrito-count" id="carrito-count">0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner" id="inicio">
+        <h1>Punto Nordex</h1>
+        <p>Productos de Limpieza Profesional</p>
+        <div>
+            <a href="#productos" class="boton">Ver Productos</a>
+        </div>
+    </div>
+
+    <div class="sobre-nosotros" id="sobre">
+        <h2>Sobre Nosotros</h2>
+        <div class="sobre-content">
+            <div class="sobre-text">
+                <h3>Calidad y Compromiso</h3>
+                <p>En Punto Nordex nos dedicamos a ofrecer productos de limpieza profesional de la más alta calidad. Con años de experiencia en el mercado, entendemos las necesidades de nuestros clientes y trabajamos día a día para superarlas.</p>
+                <p>Nuestra misión es brindar soluciones efectivas que hagan de la limpieza una tarea más simple y eficiente. Seleccionamos cuidadosamente cada producto para garantizar resultados excepcionales.</p>
+                <p>Confía en nosotros para mantener tus espacios impecables con productos que realmente funcionan.</p>
+            </div>
+            <div class="sobre-imagen">
+                [Aquí va tu imagen]
+            </div>
+        </div>
+    </div>
+
+    <div class="productos" id="productos">
+        <h2>Nuestros Productos</h2>
+        <p class="productos-subtitle">Descubrí nuestra línea completa de productos de limpieza</p>
+        
+        <div class="grilla">
+            <div class="tarjeta">
+                <img src="./imagenes/crema-original.jpg" alt="producto">
+                <div class="tarjeta-contenido">
+                    <h3>CIF Crema Original</h3>
+                    <p>Limpiador multiusos cremoso</p>
+                    <div class="precio">$8000</div>
+                    <button onclick="agregarCarrito('CIF Crema Original', 8000)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <img src="./imagenes/limon.png" alt="producto">
+                <div class="tarjeta-contenido">
+                    <h3>CIF Active Limón</h3>
+                    <p>Gel activo con poder desengrasante</p>
+                    <div class="precio">$9000</div>
+                    <button onclick="agregarCarrito('CIF Active Limon', 9000)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <img src="./imagenes/ultrarapido.jpg" alt="producto">
+                <div class="tarjeta-contenido">
+                    <h3>CIF Baño Ultrarrápido</h3>
+                    <p>Especializado para limpieza de baños</p>
+                    <div class="precio">$7500</div>
+                    <button onclick="agregarCarrito('CIF Baño', 7500)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <img src="./imagenes/cocina.jpg" alt="producto">
+                <div class="tarjeta-contenido">
+                    <h3>CIF Cocina Desengrasante</h3>
+                    <p>Fórmula especial para grasa difícil</p>
+                    <div class="precio">$7900</div>
+                    <button onclick="agregarCarrito('CIF Cocina', 7900)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <img src="./imagenes/vidrios.jpg" alt="producto">
+                <div class="tarjeta-contenido">
+                    <h3>CIF Vidrios Cristal</h3>
+                    <p>Limpiador para vidrios</p>
+                    <div class="precio">$11000</div>
+                    <button onclick="agregarCarrito('CIF Vidrios', 11000)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <img src="./imagenes/gel.png" alt="producto">
+                <div class="tarjeta-contenido">
+                    <h3>CIF GEL</h3>
+                    <p>Desinfectante para manos 2 en 1</p>
+                    <div class="precio">$10500</div>
+                    <button onclick="agregarCarrito('CIF GEL', 10500)">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contacto" id="contacto">
+        <h2>Contacto</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <p>📍</p>
+                <p>Dirección</p>
+                <p>Buenos Aires, Argentina</p>
+            </div>
+            <div class="info-card">
+                <p>📞</p>
+                <p>Teléfono</p>
+                <p>+54 11 1234-5678</p>
+            </div>
+            <div class="info-card">
+                <p>✉️</p>
+                <p>Email</p>
+                <p>info@puntonordex.com.ar</p>
+            </div>
+            <div class="info-card">
+                <p>⏰</p>
+                <p>Horario</p>
+                <p>Lunes a Viernes de 9 a 18hs</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pie">
+        <p>© 2025 Punto Nordex - Productos de Limpieza Profesional</p>
+    </div>
+
+    <script>
+        let carritoItems = 0;
+
+        function agregarCarrito(nombre, precio) {
+            carritoItems++;
+            document.getElementById('carrito-count').textContent = carritoItems;
+            alert('Producto agregado: ' + nombre + ' - ' + precio);
+        }
+
+        function verCarrito() {
+            if (carritoItems === 0) {
+                alert('El carrito está vacío');
+            } else {
+                alert('Tienes ' + carritoItems + ' producto(s) en el carrito');
+            }
+        }
+    </script>
+
+</body>
+</html>
