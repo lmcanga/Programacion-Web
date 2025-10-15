@@ -8,13 +8,16 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: white;
+    /* Mejora la legibilidad en móviles al evitar el reajuste automático de texto */
+    -webkit-text-size-adjust: 100%;
 }
 
 /* --- HEADER --- */
 .header {
     background: white;
     padding: 0 50px;
-    height: 70px;
+    /* Aumentamos un poco la altura para que el logo quepa mejor */
+    height: 80px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
@@ -35,7 +38,8 @@ body {
 }
 
 .header-logo {
-    height: 100px;
+    /* CORREGIDO: La altura del logo ahora es coherente con la altura del header */
+    height: 60px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -288,8 +292,8 @@ body {
 
 .categorias-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
     justify-content: center;
@@ -479,7 +483,7 @@ body {
     box-shadow: 0 8px 20px rgba(0,153,204,0.3);
 }
 
-/* --- CONTACTO Y FOOTER (CON TARJETAS DE INFO) --- */
+/* --- CONTACTO Y FOOTER --- */
 .contacto {
     padding: 100px 50px;
     background: #2c3e50;
@@ -508,7 +512,6 @@ body {
     flex-direction: column;
     gap: 20px;
 }
-/* --- CORREGIR DESPUES --- */
 
 .info-card-contact {
     background: white;
@@ -571,68 +574,123 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* --- MEDIA QUERIES PARA RESPONSIVIDAD --- */
+
+/*
+================================================================
+--- MEDIA QUERIES PARA RESPONSIVIDAD (MODIFICADAS Y MEJORADAS) ---
+================================================================
+*/
+
+/* --- Para Tablets (hasta 992px) --- */
 @media (max-width: 992px) {
+    .sobre-content {
+        gap: 40px; /* Reducimos el espacio entre imagen y texto */
+    }
+
     .contacto-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
+    .mapa-container {
+        /* Para que el mapa no sea tan alto en la vista de una columna */
+        height: 400px;
+    }
+
+    .categorias-grid {
+        /* Ajustamos el tamaño mínimo para que no se hagan 4 columnas muy apretadas */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
 }
 
-@media (max-width: 768px) {
-    .header {
-        padding: 10px 20px;
-        height: auto;
-        flex-direction: column;
-        gap: 15px;
-    }
-    .header-logo { height: 60px; }
-    .menu { gap: 20px; }
-    .menu a { font-size: 14px; }
-    .banner {
-        padding: 80px 20px;
-        min-height: 400px;
-    }
-    .banner h1 { font-size: 40px; }
-    .banner p { font-size: 18px; }
 
+/* --- Para Celulares y Tablets en vertical (hasta 768px) --- */
+@media (max-width: 768px) {
+    /* Ajustes Generales de espaciado y fuentes */
     .productos, .contacto, .sobre-nosotros, .categorias {
-        padding: 60px 20px;
+        padding: 80px 20px;
     }
     
+    .categorias h2, .contacto h2, .sobre-text h3 {
+        font-size: 38px;
+    }
+
+    /* Header para móviles */
+    .header {
+        padding: 15px 20px;
+        height: auto;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .header-logo { height: 55px; }
+
+    .nav-container {
+        gap: 30px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .menu { gap: 20px; }
+    .menu a { font-size: 15px; }
+
+    /* Banner para móviles */
+    .banner {
+        padding: 100px 20px;
+        min-height: 450px;
+    }
+    .banner h1 { font-size: 42px; }
+    .banner p { font-size: 18px; }
+    .boton { padding: 15px 40px; font-size: 15px; }
+
+    /* Secciones de Contenido */
     .sobre-content {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
-    .sobre-imagen-wrapper {
-        margin-bottom: 40px;
-    }
+
     .sobre-text {
         text-align: center;
     }
+
     .sobre-text h3::after {
         left: 50%;
         transform: translateX(-50%);
     }
 
-    .grilla { grid-template-columns: 1fr; gap: 20px; }
-    
-    .categorias h2 { font-size: 38px; }
-    .categorias-subtitle {
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
+    /* Grillas de tarjetas */
     .categorias-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(2, 1fr); /* Forzamos 2 columnas para una mejor vista */
+        gap: 20px;
+    }
+
+    .categoria-imagen { width: 120px; height: 120px; }
+    .categoria-card h3 { font-size: 16px; }
+
+    .grilla {
+        grid-template-columns: 1fr;
         gap: 25px;
     }
-    .categoria-imagen {
-        width: 140px;
-        height: 140px;
-        margin-bottom: 15px;
+}
+@media (max-width: 480px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 25px;
     }
-    .categoria-card h3 { font-size: 16px; }
-    .categoria-card {
-        padding: 20px 10px 10px 10px;
-        border-radius: 15px;
+
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
     }
+    
+    .menu a { padding: 5px 0; }
+
+    .banner h1 { font-size: 34px; }
+    .banner p { font-size: 16px; }
+    .sobre-text h3 { font-size: 32px; }
+
+    .categorias-grid { gap: 15px; }
+    .categoria-imagen { width: 100px; height: 100px; }
+    .categoria-card h3 { font-size: 14px; }
 }
