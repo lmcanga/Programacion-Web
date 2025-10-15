@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Nordex</title>
+    <link rel="stylesheet" href="Prueba.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-container">
+            <img src="./imagenes/logonordex.png" alt="Punto Nordex Logo" class="header-logo">
+        </div>
+        
+        <div class="nav-container">
+            <div class="menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#sobre">Sobre Nosotros</a>
+                <a href="#productos">Productos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="carrito" onclick="verCarrito()">
+                <div class="carrito-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </div>
+                <div class="carrito-count" id="carrito-count">0</div>
+            </div>
+        </div>
+    </div> <div class="banner" id="inicio">
+        <h1>Limpieza que transforma tus espacios</h1>
+        <p>Productos profesionales de la más alta calidad para cada necesidad</p>
+        <div>
+            <a href="#productos" class="boton">Ver Productos</a>
+        </div>
+    </div>
+
+    <div class="sobre-nosotros" id="sobre">
+        <div class="sobre-content">
+            <div class="sobre-text">
+                <h3>Calidad y Compromiso</h3>
+                <p>En Punto Nordex nos dedicamos a ofrecer productos de limpieza profesional de la más alta calidad. Con años de experiencia en el mercado, entendemos las necesidades de nuestros clientes y trabajamos día a día para superarlas.</p>
+                <p>Nuestra misión es brindar soluciones efectivas que hagan de la limpieza una tarea más simple y eficiente. Seleccionamos cuidadosamente cada producto para garantizar resultados excepcionales y un impacto positivo en tus espacios.</p>
+            </div>
+            <div class="sobre-imagen-wrapper">
+                <img src="/TP/imagenes/e.png" alt="Equipo de limpieza profesional" class="sobre-imagen">
+            </div>
+        </div>
+    </div>
+
+    <div class="trayectoria"></div>
+
+    <div class="productos" id="productos">
+        <h2>Nuestros Productos</h2>
+        <p class="productos-subtitle">Descubrí nuestra línea completa de productos de limpieza</p>
+        
+        <div class="grilla">
+            <div class="tarjeta">
+                <div class="tarjeta-imagen-container">
+                    <img src="./imagenes/crema-original.jpg" alt="producto">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>CIF Crema Original</h3>
+                    <p>Limpiador multiusos cremoso</p>
+                    <div class="precio">$8000</div>
+                    <button onclick="agregarCarrito('CIF Crema Original', 8000)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <div class="tarjeta-imagen-container">
+                    <img src="./imagenes/limon.png" alt="producto">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>CIF Active Limón</h3>
+                    <p>Gel activo con poder desengrasante</p>
+                    <div class="precio">$9000</div>
+                    <button onclick="agregarCarrito('CIF Active Limon', 9000)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <div class="tarjeta-imagen-container">
+                    <img src="./imagenes/ultrarapido.jpg" alt="producto">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>CIF Baño Ultrarrápido</h3>
+                    <p>Especializado para limpieza de baños</p>
+                    <div class="precio">$7500</div>
+                    <button onclick="agregarCarrito('CIF Baño', 7500)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta producto-oculto">
+                <div class="tarjeta-imagen-container">
+                    <img src="./imagenes/cocina.jpg" alt="producto">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>CIF Cocina Desengrasante</h3>
+                    <p>Fórmula especial para grasa difícil</p>
+                    <div class="precio">$7900</div>
+                    <button onclick="agregarCarrito('CIF Cocina', 7900)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta producto-oculto">
+                <div class="tarjeta-imagen-container">
+                    <img src="./imagenes/vidrios.jpg" alt="producto">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>CIF Vidrios Cristal</h3>
+                    <p>Limpiador para vidrios</p>
+                    <div class="precio">$11000</div>
+                    <button onclick="agregarCarrito('CIF Vidrios', 11000)">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <div class="tarjeta producto-oculto">
+                <div class="tarjeta-imagen-container">
+                    <img src="./imagenes/gel.png" alt="producto">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>CIF GEL</h3>
+                    <p>Desinfectante para manos 2 en 1</p>
+                    <div class="precio">$10500</div>
+                    <button onclick="agregarCarrito('CIF GEL', 10500)">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ver-mas-container">
+            <button class="boton-ver-mas" id="boton-ver-mas" onclick="mostrarMasProductos()">Ver más</button>
+        </div>
+    </div>
+
+    <div class="contacto" id="contacto">
+        <h2>Contacto</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <p>📍</p>
+                <p>Dirección</p>
+                <p>Posadas, Misiones, Argentina</p>
+            </div>
+            <div class="info-card">
+                <p>📞</p>
+                <p>Teléfono</p>
+                <p>+54 11 1234-5678</p>
+            </div>
+            <div class="info-card">
+                <p>✉️</p>
+                <p>Email</p>
+                <p>info@puntonordex.com.ar</p>
+            </div>
+            <div class="info-card">
+                <p>⏰</p>
+                <p>Horario</p>
+                <p>Lunes a Viernes de 9 a 18hs</p>
+            </div>
+        </div>
+
+        <div class="mapa-container">
+            <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div class="pie">
+        <p>© 2025 Punto Nordex - Productos de Limpieza Profesional</p>
+    </div>
+
+    <script src="Prueba.js"></script>
+
+</body>
+</html>
