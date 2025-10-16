@@ -982,3 +982,8 @@ body {
 .btn-cancel:hover {
     background-color: #ced4da;
 }
+
+.boton-deshabilitado {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

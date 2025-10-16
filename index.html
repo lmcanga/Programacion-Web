@@ -40,7 +40,7 @@
         <h1>Limpieza que transforma tus espacios</h1>
         <p>Productos profesionales de la más alta calidad para cada necesidad</p>
         <div>
-            <a href="#categorias" class="boton">Ver Categorías</a>
+            <a href="#categorias" class="boton">Ver Productos</a>
         </div>
     </div>
 
@@ -58,7 +58,7 @@
 </div>
 
     <div class="categorias" id="categorias">
-        <h2>Nuestras Categorías</h2>
+        <h2>Nuestros Productos</h2>
         <p class="categorias-subtitle">Encontrá todo lo que necesitás para una limpieza impecable</p>
         <div class="categorias-grid">
             <a href="limpiadores.html" class="categoria-card">
@@ -130,8 +130,7 @@
             <ul id="lista-carrito" class="lista-carrito">
                 </ul>
             <p class="carrito-total">Total: <span id="carrito-total-precio">$0.00</span></p>
-            <button class="boton-finalizar">Finalizar Compra</button>
-           
+            <button class="boton-finalizar" onclick="finalizarCompra()">Finalizar Compra</button>           
     <button class="boton-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
         </div>
     </div>
@@ -143,6 +142,7 @@
         <div class="confirm-botones">
             <button id="confirm-ok" class="btn-ok">Sí, vaciar</button>
             <button id="confirm-cancel" class="btn-cancel">Cancelar</button>
+            
         </div>
     </div>
 </div>
