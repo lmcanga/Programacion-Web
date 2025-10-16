@@ -32,8 +32,19 @@
                 </ul>
             <p class="carrito-total">Total: <span id="carrito-total-precio">$0.00</span></p>
             <button class="boton-finalizar">Finalizar Compra</button>
+    <button class="boton-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
         </div>
     </div>
+    <div id="confirm-modal" class="confirm-modal">
+    <div class="confirm-contenido">
+        <h3>Confirmar Acción</h3>
+        <p>¿Estás seguro de que quieres vaciar el carrito?</p>
+        <div class="confirm-botones">
+            <button id="confirm-ok" class="btn-ok">Sí, vaciar</button>
+            <button id="confirm-cancel" class="btn-cancel">Cancelar</button>
+        </div>
+    </div>
+</div>
     <div id="toast-container"></div>
     <div class="pie"><p>© 2025 Punto Nordex - Productos de Limpieza Profesional</p></div>
     <script src="Prueba.js"></script>

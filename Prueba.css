@@ -893,3 +893,92 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+.boton-vaciar {
+    background: transparent;
+    color: #c82333;
+    border: 2px solid #c82333;
+    padding: 13px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.boton-vaciar:hover {
+    background: #c82333;
+    color: white;
+}
+
+.confirm-modal {
+    display: none;
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-contenido {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    width: 90%;
+    max-width: 400px;
+    animation: aparecer 0.3s ease;
+}
+
+.confirm-contenido h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.confirm-contenido p {
+    margin: 15px 0 25px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.confirm-botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm-botones button {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-ok {
+    background-color: #c82333;
+    color: white;
+}
+
+.btn-ok:hover {
+    background-color: #a71d2a;
+}
+
+.btn-cancel {
+    background-color: #e9ecef;
+    color: #2c3e50;
+}
+
+.btn-cancel:hover {
+    background-color: #ced4da;
+}

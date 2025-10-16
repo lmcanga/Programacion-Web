@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuLinks = document.querySelectorAll('.menu a');
     const modalCarrito = document.getElementById('carrito-modal');
     const cerrarCarritoBtn = document.getElementById('cerrar-carrito');
+    const confirmModal = document.getElementById('confirm-modal');
+    const confirmOkBtn = document.getElementById('confirm-ok');
+    const confirmCancelBtn = document.getElementById('confirm-cancel');
 
     if (menuHamburguesa && navWrapper) {
         menuHamburguesa.addEventListener('click', () => {
@@ -35,6 +38,21 @@ document.addEventListener('DOMContentLoaded', function() {
             modalCarrito.style.display = 'none';
         }
     });
+    
+    if(confirmCancelBtn) {
+        confirmCancelBtn.addEventListener('click', () => {
+            confirmModal.style.display = 'none';
+        });
+    }
+    
+    if(confirmOkBtn) {
+        confirmOkBtn.addEventListener('click', () => {
+            productosEnCarrito = [];
+            guardarCarritoEnLocalStorage();
+            verCarrito();
+            confirmModal.style.display = 'none';
+        });
+    }
 });
 
 let productosEnCarrito = [];
@@ -118,6 +136,13 @@ function restarCantidad(nombre) {
         }
         guardarCarritoEnLocalStorage();
         verCarrito();
+    }
+}
+
+function vaciarCarrito() {
+    const confirmModal = document.getElementById('confirm-modal');
+    if (confirmModal) {
+        confirmModal.style.display = 'flex';
     }
 }
 
