@@ -19,12 +19,21 @@
         <h2>Papeles</h2>
         <p class="productos-subtitle">Máxima absorción y resistencia</p>
         <div class="grilla">
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/papel1.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Toalla en rollo blanca premium</h3><p>Toalla en rollo contextura suave y absorbente. Ideal para ser usada con dispenser a palanca , autocut o sin mecanismo.</p><div class="precio">$10000</div><button onclick="agregarCarrito('Producto 1', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/papel2.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Nombre Toalla en rollo doble hoja Non Touch Elite 6297</h3><p>Tecnología de doble hoja, tiene mayor poder de absorción y resistencia. Además, rinde mucho más.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Producto 2', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/paple3.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Toalla en rollo premium autocorte</h3><p>Toalla de papel virgen, de contextura suave, gofrada, resistente a la tracción en humedo.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Producto 3', 0)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/papel1.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Toalla en rollo blanca premium</h3><p>Toalla en rollo contextura suave y absorbente. Ideal para ser usada con dispenser a palanca , autocut o sin mecanismo.</p><div class="precio">$10000</div><button onclick="agregarCarrito('Toalla en rollo blanca premium', 10000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/papel2.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Toalla en rollo doble hoja Elite 6297</h3><p>Tecnología de doble hoja, tiene mayor poder de absorción y resistencia. Además, rinde mucho más.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Toalla en rollo doble hoja Elite 6297', 15000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/paple3.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Toalla en rollo premium autocorte</h3><p>Toalla de papel virgen, de contextura suave, gofrada, resistente a la tracción en humedo.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Toalla en rollo premium autocorte', 20000)">Agregar al Carrito</button></div></div>
         </div>
     </div>
-    
+    <div id="carrito-modal" class="carrito-modal">
+        <div class="carrito-contenido">
+            <button id="cerrar-carrito" class="cerrar-carrito">&times;</button>
+            <h2>Mi Carrito</h2>
+            <ul id="lista-carrito" class="lista-carrito">
+                </ul>
+            <p class="carrito-total">Total: <span id="carrito-total-precio">$0.00</span></p>
+            <button class="boton-finalizar">Finalizar Compra</button>
+        </div>
+    </div>
     <div class="pie"><p>© 2025 Punto Nordex - Productos de Limpieza Profesional</p></div>
     <script src="Prueba.js"></script>
 </body>

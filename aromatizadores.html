@@ -19,12 +19,21 @@
         <h2>Aromatizadores</h2>
         <p class="productos-subtitle">Fragancias que perduran y transforman tus ambientes</p>
         <div class="grilla">
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/canasta.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Canasta líquida Glade completa</h3><p>Nueva fórmula 3 en 1, Limpia, aromatiza y dura hasta 30 días permitiéndote disfrutar más de tu baño.</p><div class="precio">$10000</div><button onclick="agregarCarrito('Producto 1', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/desodorante.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Desodorante de ambientes Glade en aerosol</h3><p>El aromatizador de ambientes Glade limón refrescante tiene un estimulante aroma a cítricos.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Producto 2', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/cherry.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Duft Sweet Cherry</h3><p>Limpiador, desodorante, desinfectante. Cumple diversas funciones: limpia, desodoriza, desinfecta y desengrasa baños, pisos, azulejos, cocinas, oficinas.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Producto 3', 0)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/canasta.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Canasta líquida Glade completa</h3><p>Nueva fórmula 3 en 1, Limpia, aromatiza y dura hasta 30 días permitiéndote disfrutar más de tu baño.</p><div class="precio">$10000</div><button onclick="agregarCarrito('Canasta líquida Glade completa', 10000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/desodorante.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Desodorante Glade en aerosol</h3><p>El aromatizador de ambientes Glade limón refrescante tiene un estimulante aroma a cítricos.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Desodorante Glade en aerosol', 15000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/cherry.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Duft Sweet Cherry</h3><p>Limpiador, desodorante, desinfectante. Cumple diversas funciones: limpia, desodoriza, desinfecta y desengrasa baños, pisos, azulejos, cocinas, oficinas.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Duft Sweet Cherry', 20000)">Agregar al Carrito</button></div></div>
         </div>
     </div>
-    
+    <div id="carrito-modal" class="carrito-modal">
+        <div class="carrito-contenido">
+            <button id="cerrar-carrito" class="cerrar-carrito">&times;</button>
+            <h2>Mi Carrito</h2>
+            <ul id="lista-carrito" class="lista-carrito">
+                </ul>
+            <p class="carrito-total">Total: <span id="carrito-total-precio">$0.00</span></p>
+            <button class="boton-finalizar">Finalizar Compra</button>
+        </div>
+    </div>
     <div class="pie"><p>© 2025 Punto Nordex - Productos de Limpieza Profesional</p></div>
     <script src="Prueba.js"></script>
 </body>

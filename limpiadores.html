@@ -19,9 +19,19 @@
         <h2>Limpiadores</h2>
         <p class="productos-subtitle">Soluciones potentes para cada superficie</p>
         <div class="grilla">
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/BIO_BAC.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Bio Bac</h3><p>Ideal para lugares destinados al público o dónde existe peligro de contaminación como hospitales, escuelas, oficinas.</p><div class="precio">$1000</div><button onclick="agregarCarrito('Producto 1', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/biocorjpg.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Bioclor</h3><p>Ideal para cámaras, bodegas, pisos, utensillos, envases, avicultura, ganadería, alimentos.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Producto 2', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/betanolcitricojpg.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Bentol Citrico</h3><p>Ideal para todo tipo de superficies especialmente en pisos, cerámicos, azulejos, cocinas y baños.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Producto 3', 0)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/BIO_BAC.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Bio Bac</h3><p>Ideal para lugares destinados al público o dónde existe peligro de contaminación como hospitales, escuelas, oficinas.</p><div class="precio">$1000</div><button onclick="agregarCarrito('Bio Bac', 10000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/biocorjpg.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Bioclor</h3><p>Ideal para cámaras, bodegas, pisos, utensillos, envases, avicultura, ganadería, alimentos.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Bioclor', 15000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/betanolcitricojpg.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Bentol Citrico</h3><p>Ideal para todo tipo de superficies especialmente en pisos, cerámicos, azulejos, cocinas y baños.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Bentol Citrico', 20000)">Agregar al Carrito</button></div></div>
+        </div>
+    </div>
+    <div id="carrito-modal" class="carrito-modal">
+        <div class="carrito-contenido">
+            <button id="cerrar-carrito" class="cerrar-carrito">&times;</button>
+            <h2>Mi Carrito</h2>
+            <ul id="lista-carrito" class="lista-carrito">
+                </ul>
+            <p class="carrito-total">Total: <span id="carrito-total-precio">$0.00</span></p>
+            <button class="boton-finalizar">Finalizar Compra</button>
         </div>
     </div>
     

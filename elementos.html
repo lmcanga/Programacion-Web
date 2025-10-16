@@ -19,12 +19,21 @@
         <h2>Elementos</h2>
         <p class="productos-subtitle">Herramientas que facilitan tu trabajo</p>
         <div class="grilla">
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/escoba.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Escoba plastica</h3><p>Escoba para barrer plastica cerdas de fibra.</p><div class="precio">$10000</div><button onclick="agregarCarrito('Producto 1', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/indoro.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Escobilla inodoro</h3><p>Escobilla para limpiar inodoro, no incluye base.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Producto 2', 0)">Agregar al Carrito</button></div></div>
-            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/esponja.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Esponja doble cara Make</h3><p>Esponja de fibra lisa. Ideal para limpieza profunda.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Producto 3', 0)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/escoba.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Escoba plastica</h3><p>Escoba para barrer plastica cerdas de fibra.</p><div class="precio">$10000</div><button onclick="agregarCarrito('Escoba plastica', 10000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/indoro.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Escobilla inodoro</h3><p>Escobilla para limpiar inodoro, no incluye base.</p><div class="precio">$15000</div><button onclick="agregarCarrito('Escobilla inodoro', 15000)">Agregar al Carrito</button></div></div>
+            <div class="tarjeta"><div class="tarjeta-imagen-container"><img src="imagenes/esponja.jpg" alt="producto"></div><div class="tarjeta-contenido"><h3>Esponja doble cara Make</h3><p>Esponja de fibra lisa. Ideal para limpieza profunda.</p><div class="precio">$20000</div><button onclick="agregarCarrito('Esponja doble cara Make', 20000)">Agregar al Carrito</button></div></div>
         </div>
     </div>
-    
+    <div id="carrito-modal" class="carrito-modal">
+        <div class="carrito-contenido">
+            <button id="cerrar-carrito" class="cerrar-carrito">&times;</button>
+            <h2>Mi Carrito</h2>
+            <ul id="lista-carrito" class="lista-carrito">
+                </ul>
+            <p class="carrito-total">Total: <span id="carrito-total-precio">$0.00</span></p>
+            <button class="boton-finalizar">Finalizar Compra</button>
+        </div>
+    </div>  
     <div class="pie"><p>© 2025 Punto Nordex - Productos de Limpieza Profesional</p></div>
     <script src="Prueba.js"></script>
 </body>
