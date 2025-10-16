@@ -117,7 +117,7 @@ body {
 }
 
 .banner {
-    background: linear-gradient(135deg, rgba(0,153,204,0.6) 0%, rgba(0,107,148,0.6) 100%), url('./imagenes/a.png') center/cover;
+    background: linear-gradient(135deg, rgba(0,153,204,0.6) 0%, rgba(0,107,148,0.6) 100%), url('imagenes/a.png') center/cover;
     color: white;
     padding: 140px 50px;
     text-align: center;
