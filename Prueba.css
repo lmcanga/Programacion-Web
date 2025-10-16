@@ -598,9 +598,9 @@ body {
     .productos, .contacto, .sobre-nosotros, .categorias {
         padding: 80px 20px;
     }
-    .categorias h2, .contacto h2, .sobre-text h3 {
-        font-size: 38px;
-    }
+    .productos h2, .categorias h2, .contacto h2, .sobre-text h3 {
+    font-size: 38px;
+}
 
     .header {
         padding: 0 20px;
