@@ -38,6 +38,41 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let productosEnCarrito = [];
+let timeoutEntrada;
+let timeoutSalida;
+
+function mostrarNotificacion(mensaje) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    clearTimeout(timeoutEntrada);
+    clearTimeout(timeoutSalida);
+    container.innerHTML = '';
+
+    const notif = document.createElement('div');
+    notif.className = 'toast';
+    notif.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+        <span>${mensaje}</span>
+    `;
+
+    container.appendChild(notif);
+
+    timeoutEntrada = setTimeout(() => {
+        notif.classList.add('show');
+    }, 10);
+
+    timeoutSalida = setTimeout(() => {
+        notif.classList.remove('show');
+        setTimeout(() => {
+            if (container.contains(notif)) {
+                container.removeChild(notif);
+            }
+        }, 500);
+    }, 3000);
+}
 
 function cargarCarritoDesdeLocalStorage() {
     const carritoGuardado = localStorage.getItem('carrito');
@@ -62,7 +97,7 @@ function agregarCarrito(nombre, precio) {
     
     guardarCarritoEnLocalStorage();
     actualizarContador();
-    alert('Producto agregado: ' + nombre);
+    mostrarNotificacion(nombre + ' fue agregado al carrito.');
 }
 
 function sumarCantidad(nombre) {
@@ -106,7 +141,7 @@ function verCarrito() {
 
     if (productosEnCarrito.length === 0) {
         listaCarrito.innerHTML = '<li>El carrito está vacío.</li>';
-        totalPrecio.textContent = '$0.00';
+        totalPrecio.textContent = '$0';
     } else {
         let total = 0;
         productosEnCarrito.forEach(item => {
@@ -114,7 +149,7 @@ function verCarrito() {
             const precioTotalItem = item.precio * item.cantidad;
             
             li.innerHTML = `
-                <span class="item-info">${item.nombre} - $${precioTotalItem.toFixed(2)}</span>
+                <span class="item-info">${item.nombre} - $${precioTotalItem.toLocaleString('es-AR')}</span>
                 <div class="item-controles">
                     <button class="btn-cantidad" onclick="restarCantidad('${item.nombre}')">-</button>
                     <span class="item-cantidad">${item.cantidad}</span>
@@ -125,7 +160,7 @@ function verCarrito() {
             listaCarrito.appendChild(li);
             total += precioTotalItem;
         });
-        totalPrecio.textContent = `$${total.toFixed(2)}`;
+        totalPrecio.textContent = `$${total.toLocaleString('es-AR')}`;
     }
     
     modal.style.display = 'block';
