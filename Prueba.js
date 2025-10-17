@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    /*carrito guardado */
     cargarCarritoDesdeLocalStorage();
     actualizarContador();
 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navWrapper.classList.toggle('menu-abierto');
         });
     }
-
+    /*menu celular*/
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (navWrapper.classList.contains('menu-abierto')) {
@@ -26,13 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
+    /*boton cerrar*/
     if (cerrarCarritoBtn) {
         cerrarCarritoBtn.addEventListener('click', () => {
             modalCarrito.style.display = 'none';
         });
     }
-
+    /*cuando clickeas fuera de la pag del carrito*/
     window.addEventListener('click', (event) => {
         if (event.target == modalCarrito) {
             modalCarrito.style.display = 'none';
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             confirmModal.style.display = 'none';
         });
     }
-    
+    /*boton confirmacion vaciar*/
     if(confirmOkBtn) {
         confirmOkBtn.addEventListener('click', () => {
             productosEnCarrito = [];
@@ -59,10 +60,11 @@ let productosEnCarrito = [];
 let timeoutEntrada;
 let timeoutSalida;
 
+/* alertas */
 function mostrarNotificacion(mensaje) {
     const container = document.getElementById('toast-container');
     if (!container) return;
-
+    /*para finalizar compra*/
     clearTimeout(timeoutEntrada);
     clearTimeout(timeoutSalida);
     container.innerHTML = '';
@@ -91,18 +93,18 @@ function mostrarNotificacion(mensaje) {
         }, 500);
     }, 3000);
 }
-
+/*guardar carrito*/
 function cargarCarritoDesdeLocalStorage() {
     const carritoGuardado = localStorage.getItem('carrito');
     if (carritoGuardado) {
-        productosEnCarrito = JSON.parse(carritoGuardado);
+        productosEnCarrito = /*utlima clase*/ JSON.parse(carritoGuardado);
     }
 }
 
 function guardarCarritoEnLocalStorage() {
     localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
 }
-
+/*crear*/
 function agregarCarrito(nombre, precio) {
     const numericPrice = parseFloat(precio) || 0;
     const productoExistente = productosEnCarrito.find(item => item.nombre === nombre);
@@ -117,7 +119,7 @@ function agregarCarrito(nombre, precio) {
     actualizarContador();
     mostrarNotificacion(nombre + ' fue agregado al carrito.');
 }
-
+/*actualizar*/
 function sumarCantidad(nombre) {
     const producto = productosEnCarrito.find(item => item.nombre === nombre);
     if (producto) {
@@ -126,7 +128,7 @@ function sumarCantidad(nombre) {
         verCarrito();
     }
 }
-
+/*eliminar*/
 function restarCantidad(nombre) {
     const producto = productosEnCarrito.find(item => item.nombre === nombre);
     if (producto) {
@@ -138,7 +140,7 @@ function restarCantidad(nombre) {
         verCarrito();
     }
 }
-
+/*eliminar*/
 function vaciarCarrito() {
     const confirmModal = document.getElementById('confirm-modal');
     if (confirmModal) {
@@ -150,13 +152,10 @@ function finalizarCompra() {
     if (productosEnCarrito.length === 0) {
         return;
     }
-
     mostrarNotificacion("¡Compra finalizada con éxito!");
-    
     productosEnCarrito = [];
     guardarCarritoEnLocalStorage();
     actualizarContador();
-
     const modalCarrito = document.getElementById('carrito-modal');
     if (modalCarrito) {
         modalCarrito.style.display = 'none';
@@ -170,7 +169,7 @@ function actualizarContador() {
         contador.textContent = totalItems;
     }
 }
-
+/*leer*/
 function verCarrito() {
     const modal = document.getElementById('carrito-modal');
     const listaCarrito = document.getElementById('lista-carrito');
@@ -209,15 +208,4 @@ function verCarrito() {
     }
     
     modal.style.display = 'block';
-}
-
-function mostrarMasProductos() {
-    const productosOcultos = document.querySelectorAll('.producto-oculto');
-    productosOcultos.forEach(producto => {
-        producto.classList.remove('producto-oculto');
-    });
-    const boton = document.getElementById('boton-ver-mas');
-    if (boton) {
-        boton.style.display = 'none';
-    }
 }
